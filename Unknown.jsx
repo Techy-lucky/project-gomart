@@ -18,7 +18,7 @@ const Unknown = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+      <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-semibold text-center mb-6">Admin Access</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -27,18 +27,27 @@ const Unknown = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter password"
-              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-black"
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-black bg-white/60 placeholder-black"
             />
           </div>
           {error && (
             <p className="text-red-500 text-sm mb-4 text-center">{error}</p>
           )}
-          <button
-            type="submit"
-            className="w-full bg-black text-white py-2 rounded-md hover:bg-gray-800 transition"
-          >
-            Submit
-          </button>
+          <div className="flex gap-4">
+            <button
+              type="submit"
+              className="w-1/2 bg-black text-white py-2 rounded-md hover:bg-gray-800 transition"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="w-1/2 bg-gray-900/20 border border-gray-400 text-white py-2 rounded-md hover:bg-white/80 hover:text-black transition"
+            >
+              Back to Home
+            </button>
+          </div>
         </form>
       </div>
     </div>
